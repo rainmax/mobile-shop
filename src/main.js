@@ -3,12 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
 
-import { Header } from 'mint-ui'
+import { Header, Swipe, SwipeItem } from 'mint-ui'
+
 import '../static/mui.min.css'
+import '../static/icons-extra.css'
 
 Vue.config.productionTip = false
 
+Vue.prototype.axios = axios
+
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
 Vue.component(Header.name, Header)
 
 /* eslint-disable no-new */
