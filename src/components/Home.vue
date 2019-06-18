@@ -1,19 +1,17 @@
 <template>
     <div>
-        <mt-swipe :auto="0">
-            <mt-swipe-item v-for="item in lunbotuList" :key="item.url"><img :src="item.url"></mt-swipe-item>
-        </mt-swipe>
         <div class="mui-content">
+          <swiper :picList="lunbotuList" :isWidthFull="true"/>
             <ul class="mui-table-view mui-grid-view mui-grid-9">
-                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/news">
                     <img src="../../static/img/menu1.png" alt="">
-                    <div class="mui-media-body">新闻资讯</div></a></li>
-                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+                    <div class="mui-media-body">新闻资讯</div></router-link></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/PhoShare">
                     <img src="../../static/img/menu2.png" alt="">
-                    <div class="mui-media-body">图片分享</div></a></li>
-                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+                    <div class="mui-media-body">图片分享</div></router-link></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/goods">
                     <img src="../../static/img/menu3.png" alt="">
-                    <div class="mui-media-body">商品分类</div></a></li>
+                    <div class="mui-media-body">商品分类</div></router-link></li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../../static/img/menu4.png" alt="">
                     <div class="mui-media-body">留言反馈</div></a></li>
@@ -29,11 +27,15 @@
 </template>
 
 <script>
+import swiper from '@/components/commonComponents/Swiper'
 export default {
   data: function () {
     return {
       lunbotuList: []
     }
+  },
+  components: {
+    swiper
   },
   created: function () {
     this.getLunbotu()
@@ -41,8 +43,8 @@ export default {
   methods: {
     getLunbotu: function () {
       var that = this
-      this.axios.get('http://localhost:8888/getLunbotu').then(function (res) {
-        that.lunbotuList = res.data
+      this.axios.get('http://localhost:8888/api/getlunbotu').then(function (res) {
+        that.lunbotuList = res.data.imgs
       })
     }
   }
@@ -50,15 +52,6 @@ export default {
 </script>
 
 <style scope>
-.mint-swipe {
-  height: 240px;
-}
-
-.mint-swipe-item img{
-    width: 100%;
-    height: 100%;
-}
-
 .mui-grid-view.mui-grid-9 {
     background-color: #fff;
     border: none;
