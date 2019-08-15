@@ -13,7 +13,7 @@
 ## 图片模块
 &emsp;&emsp;全部列表页下使用mint-ui的图片懒加载功能，优化加载新能。图片详情页面使用vue-preview插件，实现图片点击浏览切换功能。
 
-![pic](assets/3.png)![pic](https://github.com/rainmax/mobile-shop/blob/master/assets/4.PNG)![pic](https://github.com/rainmax/mobile-shop/blob/master/assets/5.PNG)
+![pic](https://github.com/rainmax/mobile-shop/blob/master/assets/3.png)![pic](https://github.com/rainmax/mobile-shop/blob/master/assets/4.PNG)![pic](https://github.com/rainmax/mobile-shop/blob/master/assets/5.PNG)
 ## 购物车模块
   &emsp;&emsp;使用vuex，让购物车与商品详情页中的数据进行同步。
   
